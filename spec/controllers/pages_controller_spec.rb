@@ -20,6 +20,11 @@ describe PagesController do
 																											:content => @base_title + " | Home")
 	end
 
+	it "should have a non-blank body" do
+		get 'home'
+		response.body.should_not =~ /<body>\s*<\/body>/
+	end
+
   describe "GET 'contact'" do
     it "should be successful" do
       get 'contact'
