@@ -9,7 +9,7 @@ Spork.prefork do
   unless defined?(Rails)
     require File.dirname(__FILE__) + "/../config/environment"
   end
-
+  require 'rspec/rails'
   
 end
 
@@ -63,4 +63,7 @@ RSpec.configure do |config|
   # Emulate initializer set_clear_dependencies_hook in
   # railties/lib/rails/application/bootstrap.rb
   ActiveSupport::Dependencies.clear
+end
+
+Spork.each_run do
 end
