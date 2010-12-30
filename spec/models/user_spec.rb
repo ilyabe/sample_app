@@ -102,7 +102,7 @@ describe User do
     
     describe "has_password? method" do
       
-      it "should be true if the password match" do
+      it "should be true if the passwords match" do
 	@user.has_password?(@attr[:password]).should be_true
       end
       
