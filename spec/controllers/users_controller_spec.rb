@@ -3,12 +3,12 @@ require 'spec_helper'
 describe UsersController do
 	render_views
 	
+	before(:each) do
+		@user = Factory(:user)
+	end
+		
 	describe "GET 'show'" do
-		
-		before(:each) do
-			@user = Factory(:user)
-		end
-		
+
 		it "should be successful" do
 			get :show, :id =>@user
 			response.should be_success
@@ -21,6 +21,7 @@ describe UsersController do
 	end
 
 	describe "GET 'new'" do
+	
 		it "should be successful" do
 			get 'new'
 			response.should be_success
@@ -42,7 +43,7 @@ describe UsersController do
 		end
 		
 		it "should have a profile image" do
-			get :show, id => @user
+			get :show, :id => @user
 			response.should have_selector("h1>img", :class => "gravatar")
 		end
 	end
