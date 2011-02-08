@@ -10,6 +10,10 @@ Spork.prefork do
     require File.dirname(__FILE__) + "/../config/environment"
   end
   require 'rspec/rails'
+
+  def test_sign_in(user)
+    controller.sign_in(user)
+  end
   
 end
 
@@ -63,10 +67,6 @@ RSpec.configure do |config|
   # Emulate initializer set_clear_dependencies_hook in
   # railties/lib/rails/application/bootstrap.rb
   ActiveSupport::Dependencies.clear
-
-  def test_sign_in(user)
-    controller.sign_in(user)
-  end
 end
 
 Spork.each_run do

@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      @signed_in = true
+      #@signed_in = true
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
     else
@@ -30,9 +30,7 @@ class UsersController < ApplicationController
   # listing 9.24 in rails tutorial
   # even though the user is definitely
   # signed in after registering
-  def signed_in?
-    if @signed_in == true
-      true
-    end
-  end
+  #def signed_in?
+   # @signed_in? true : false
+  #end
 end
